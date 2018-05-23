@@ -1,6 +1,6 @@
 # cloud-music-electron-vue
 
-> An electron-vue project
+> 根据electron-vue仿网易云音乐PC端，接口使用是 https://binaryify.github.io/NeteaseCloudMusicAp
 
 #### Build Setup
 
