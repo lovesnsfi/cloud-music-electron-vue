@@ -1,0 +1,6 @@
+@mixin flexbox($dir:row){
+  display: flex;
+  flex-direction: row;
+  @content;
+}
+$primaryColor:#C62F2F;
