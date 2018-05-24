@@ -1,6 +1,6 @@
 <template>
   <div class="music-item">
-    <img :src="item.picUrl||item.coverImgUrl" alt="" class=" img-responsive">
+    <img v-lazy="item.picUrl||item.coverImgUrl" alt="" class=" img-responsive">
     <span>{{item.name}}</span>
   </div>
 </template>

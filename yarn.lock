@@ -7048,6 +7048,10 @@ vue-html-loader@^1.2.4:
     loader-utils "^1.0.2"
     object-assign "^4.1.0"
 
+vue-lazyload@^1.2.3:
+  version "1.2.3"
+  resolved "http://registry.npm.taobao.org/vue-lazyload/download/vue-lazyload-1.2.3.tgz#901f9ec15c7e6ca78781a2bae4a343686bdedb2c"
+
 vue-loader@^13.0.5:
   version "13.7.1"
   resolved "http://registry.npm.taobao.org/vue-loader/download/vue-loader-13.7.1.tgz#d9009d0abd392b4efe8b8fb1f542f6723b02dd3a"
