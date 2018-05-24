@@ -5,31 +5,14 @@
       <a href="#">更多<span class=" glyphicon glyphicon-menu-right"></span></a>
     </div>
     <div class="music-item-list">
-      <div class="music-item" v-for="(item,index) in result" :key="index">
-        <img :src="item.picUrl" alt="" class=" img-responsive">
-        <span>{{item.name}}</span>
-      </div>
-      <!-- <div class="music-item">
-        <img src="../assets/h-02.jpg" alt="" class=" img-responsive">
-        <span>这是说明性的文字</span>
-      </div>
-      <div class="music-item">
-        <img src="../assets/h-03.jpg" alt="" class=" img-responsive">
-        <span>这是说明性的文字</span>
-      </div>
-      <div class="music-item">
-        <img src="../assets/h-04.jpg" alt="" class=" img-responsive">
-        <span>这是说明性的文字</span>
-      </div>
-      <div class="music-item">
-        <img src="../assets/h-05.jpg" alt="" class=" img-responsive">
-        <span>这是说明性的文字</span>
-      </div> -->
+      
+      <music-list-item v-for="(item,index) in result" :key="index" :item="item"></music-list-item>
     </div>
   </div>
 </template>
 
 <script>
+import musicListItem from "@/components/music-list-item"
 export default {
   name:"musicList",
   data(){
@@ -37,7 +20,10 @@ export default {
 
     }
   },
-  props:["result"]
+  props:["result"],
+  components:{
+    musicListItem
+  }
 }
 </script>
 
@@ -61,19 +47,9 @@ export default {
         flex-wrap: wrap;
         justify-content: center;
       }
-      .music-item{
-        width: 19.5%;
-        box-sizing: border-box;
-        padding: .5%;
-        >img{
-          padding: 5px;
-         
-        }
-        >span{
-          font-size: 12px;
-        }
-      }
+      
     }
+		
 }
 </style>
 

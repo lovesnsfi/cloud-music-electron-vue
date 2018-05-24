@@ -1,21 +1,21 @@
 <template>
   <div id="certify">
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="../assets/01.jpg" /></div>
-      <div class="swiper-slide"><img src="../assets/02.jpg" /></div>
-      <div class="swiper-slide"><img src="../assets/03.jpg" /></div>
-      <div class="swiper-slide"><img src="../assets/04.jpg" /></div>
-      <div class="swiper-slide"><img src="../assets/05.jpg" /></div>
-      <div class="swiper-slide"><img src="../assets/06.jpg" /></div>
-      <div class="swiper-slide"><img src="../assets/07.jpg" /></div>
-      <div class="swiper-slide"><img src="../assets/08.jpg" /></div>
-    </div>
-  </div>
-  <div class="swiper-pagination"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-</div>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="../assets/01.jpg" /></div>
+				<div class="swiper-slide"><img src="../assets/02.jpg" /></div>
+				<div class="swiper-slide"><img src="../assets/03.jpg" /></div>
+				<div class="swiper-slide"><img src="../assets/04.jpg" /></div>
+				<div class="swiper-slide"><img src="../assets/05.jpg" /></div>
+				<div class="swiper-slide"><img src="../assets/06.jpg" /></div>
+				<div class="swiper-slide"><img src="../assets/07.jpg" /></div>
+				<div class="swiper-slide"><img src="../assets/08.jpg" /></div>
+			</div>
+		</div>
+		<div class="swiper-pagination"></div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+	</div>
 </template>
 
 <script>
