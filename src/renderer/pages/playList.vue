@@ -7,6 +7,7 @@
     </ul>
     <!--歌曲列表 -->
     <div class="play-list-content">
+      <loading-process v-if="showLoading"></loading-process>
       <music-list-item v-for="(item,index) in playlists" :key="index" :item="item"></music-list-item>
     </div>
   </div>
@@ -14,13 +15,15 @@
 
 <script>
 import musicListItem from "@/components/music-list-item";
+import loadingProcess from "@/components/loading-process";
 export default {
   name:'playList',
   data(){
     return {
       hotPlayList:[],
       playlists:[],
-      currentTagName:""
+      currentTagName:"",
+      showLoading:true
     }
   },
   created(){
@@ -36,20 +39,25 @@ export default {
     },
     //获取精品歌单
     gethighquality(){
+      this.showLoading=true;  //显示loading等待动画
       this.$http.get("/top/playlist/highquality?limit=30").then(res=>{
+        this.showLoading=false;
         this.playlists=res.data.playlists;
       });
     },
     //根据标签获取歌曲
     getListByTag(cat){
       this.currentTagName=cat;
+      this.playlists.splice(0,this.playlists.length);  //清空原来的数组
+      this.showLoading=true;  //显示loading等待动画
       this.$http.get(`/top/playlist?limit=30&cat=${cat}`).then(res=>{
+        this.showLoading=false;
         this.playlists=res.data.playlists;
       });
     }
   },
   components:{
-    musicListItem
+    musicListItem,loadingProcess
   }
 }
 </script>
@@ -76,6 +84,7 @@ export default {
         flex-wrap: wrap;
         justify-content: center;
       }
+      
   }
 }
 </style>

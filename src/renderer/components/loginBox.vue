@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class=" form-group">
-          <button type="button" class=" btn btn-danger btn-block" @click="loginSys">登陆</button>
+          <button type="button" class=" btn btn-danger btn-block" :disabled="isLogin"  @click="loginSys">{{isLogin?'正在登陆...':'登陆'}}</button>
         </div>
       </form>
     </div>
@@ -37,12 +37,15 @@ export default {
       formData:{
         phone:"",
         password:""
-      }
+      },
+      isLogin:false    //登陆按钮的状态
     }
   },
 
   methods:{
+    //点击登陆以后的事件
     loginSys(){
+      this.isLogin=true;
       this.$http.get("/login/cellphone",{
         params:this.formData
       }).then(res=>{
@@ -58,6 +61,10 @@ export default {
             buttons:["确定"]
           });
         }
+        this.isLogin=false;
+      }).catch(err=>{
+        this.isLogin=false;
+        remote.dialog.showErrorBox("错误","服务器错误"+err);
       });
     }
   }

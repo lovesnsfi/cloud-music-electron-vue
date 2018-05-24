@@ -5,19 +5,17 @@
       <a href="#">更多<span class=" glyphicon glyphicon-menu-right"></span></a>
     </div>
     <div class="music-item-list">
-      
       <music-list-item v-for="(item,index) in result" :key="index" :item="item"></music-list-item>
     </div>
   </div>
 </template>
 
 <script>
-import musicListItem from "@/components/music-list-item"
+import musicListItem from "@/components/music-list-item";
 export default {
   name:"musicList",
   data(){
     return {
-
     }
   },
   props:["result"],
