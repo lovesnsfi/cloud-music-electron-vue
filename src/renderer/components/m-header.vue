@@ -5,10 +5,10 @@
           <span class=" glyphicon glyphicon-music" style="margin:0 10px"></span>网易云音乐
         </div>
         <div class="btn-navigator">
-          <label class=" label label-danger btn" >
+          <label class=" label label-danger btn" @click="$router.back()" >
             <span class=" glyphicon glyphicon-arrow-left"></span>
           </label>
-          <label class=" label label-danger btn">
+          <label class=" label label-danger btn" @click="$router.forward()">
             <span class=" glyphicon glyphicon-arrow-right"></span>
           </label>
         </div>
@@ -16,14 +16,21 @@
       </div>
       <div class="right" style="-webkit-app-region: no-drag">
         <ul class=" list-inline list-unstyled">
+          <li>
+            <img :src="userInfo.avatarUrl" alt="" class=" img-circle" style="width:30px;height:30px">
+          </li>
           <li class=" dropdown">
             <a href="#" data-toggle="dropdown" class=" dropdown-toggle" style="color:white">
-              未登陆<span class="caret"></span>
+              {{userInfo.nickname}}<span class="caret"></span>
             </a>
-            <ul class=" dropdown-menu">
-              <li><a href="#">账号登陆</a></li>
-              <li><a href="#">手机号登陆</a></li>
+            <ul class=" dropdown-menu" v-if="userInfo.userId==''">
+              <li><a href="#" @click="loginByUserId">账号登陆</a></li>
+              <li><a href="#" @click="$emit('loginByPhone')">手机号登陆</a></li>
             </ul>
+            <ul class=" dropdown-menu" v-if="userInfo.userId!=''">
+              <li><a href="#" @click="logOut">退出登陆</a></li>
+            </ul>
+            
           </li>
           <li><a href="#" style="color:white"><span class="glyphicon glyphicon-eye-open"></span></a></li>
           <li><a href="#" style="color:white"><span class=" glyphicon glyphicon-envelope"></span></a></li>
@@ -41,12 +48,16 @@
 
 <script>
 import {ipcRenderer,remote} from "electron";
+import {mapGetters} from "vuex";
 export default {
   name:"m-header",
   data(){
     return {
 
     }
+  },
+  computed:{
+    ...mapGetters(["userInfo"])
   },
   methods:{
     exitSys(){
@@ -67,6 +78,16 @@ export default {
     },
     windowMax(){
       ipcRenderer.send("window-max");
+    },
+    loginByUserId(){
+      remote.dialog.showMessageBox(null,{
+        title:"提示",
+        message:"暂不支持账号登陆，请使用手机号登陆",
+        buttons:["确定"]
+      });
+    },
+    logOut(){
+      this.$store.dispatch("logOut")
     }
   }
 }

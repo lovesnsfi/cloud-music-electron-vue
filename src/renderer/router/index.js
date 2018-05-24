@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router';
 import index from "@/pages/index";
 import findMusic from "@/pages/findMusic";
+import playList from "@/pages/playList";
+import tuijian from "@/pages/tuijian";
 
 Vue.use(Router)
 
@@ -14,8 +16,20 @@ export default new Router({
                 {
                     path:"findMusic",
                     name:"findMusic",
-                    component:findMusic
+                    component:findMusic,
+                    children:[
+                        {
+                            path:"playList",
+                            name:"playList",
+                            component:playList
+                        },{
+                            path:"tuijian",
+                            name:"tuijian",
+                            component:tuijian
+                        }   
+                    ]
                 }
+                
             ]
         },
         {

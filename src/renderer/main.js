@@ -13,6 +13,7 @@ Vue.config.productionTip = false
 
 import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "animate.css/animate.min.css";
 
 
 /* eslint-disable no-new */

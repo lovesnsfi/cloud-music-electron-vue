@@ -51,6 +51,7 @@
     }
   },
   "dependencies": {
+    "animate.css": "^3.6.1",
     "axios": "^0.16.1",
     "bootstrap": "3.3.7",
     "jquery": "2.1.0",
