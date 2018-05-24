@@ -36,6 +36,7 @@ function createWindow() {
         mainWindow = null
     });
     mainWindow.setMenu(null);
+    
 }
 
 app.on('ready', createWindow)
@@ -69,6 +70,12 @@ ipcMain.on("window-max",()=>{
             mainWindow.maximize(); 
         }
    }
+})
+
+ipcMain.on("open-devtools",()=>{
+    if(mainWindow!=null){
+        mainWindow.webContents.openDevTools();
+    }  
 })
 
 /**

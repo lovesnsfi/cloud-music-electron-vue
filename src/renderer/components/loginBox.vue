@@ -77,7 +77,7 @@ export default {
   padding: 20px;
   margin-left: -175px;
   margin-top: -150px;
-  
+  z-index: 1000;
 }
 </style>
 
