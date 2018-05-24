@@ -3,7 +3,7 @@
     <!--歌单 -->
     <ul class="play-list-tag list-unstyled list-inline text-center">
       <li>热门标签:</li>
-      <li v-for="(t,index) in hotPlayList" :key="index">{{t.name}}</li>
+      <li :class="{active:currentTagName==t.name}" style="cursor:pointer" v-for="(t,index) in hotPlayList" :key="index" @click="getListByTag(t.name)" >{{t.name}}</li>
     </ul>
     <!--歌曲列表 -->
     <div class="play-list-content">
@@ -19,7 +19,8 @@ export default {
   data(){
     return {
       hotPlayList:[],
-      playlists:[]
+      playlists:[],
+      currentTagName:""
     }
   },
   created(){
@@ -36,6 +37,13 @@ export default {
     //获取精品歌单
     gethighquality(){
       this.$http.get("/top/playlist/highquality?limit=30").then(res=>{
+        this.playlists=res.data.playlists;
+      });
+    },
+    //根据标签获取歌曲
+    getListByTag(cat){
+      this.currentTagName=cat;
+      this.$http.get(`/top/playlist?limit=30&cat=${cat}`).then(res=>{
         this.playlists=res.data.playlists;
       });
     }
@@ -58,6 +66,9 @@ export default {
     >li:not(:first-child){
       padding: 0 10px;
       border-right: 1px solid lightgray;
+      &.active{
+        color: $primaryColor;
+      }
     }
   }
   .play-list-content{

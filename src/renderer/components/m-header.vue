@@ -1,8 +1,9 @@
 <template>
   <header class="header" style="-webkit-app-region: drag">
+      <!-- 头部导航左边的部分 -->
       <div class="left" style="-webkit-app-region: no-drag">
         <div class="header_title">
-          <span class=" glyphicon glyphicon-music" style="margin:0 10px"></span>网易云音乐
+          <span class=" glyphicon glyphicon-music" style="margin:0 10px"></span>软帝云音乐
         </div>
         <div class="btn-navigator">
           <label class=" label label-danger btn" @click="$router.back()" >
@@ -14,10 +15,11 @@
         </div>
         <input type="text" placeholder="搜索歌手、歌词、电台、歌曲" class="txtQuery">
       </div>
+      <!-- 头部导航右边的部分 -->
       <div class="right" style="-webkit-app-region: no-drag">
         <ul class=" list-inline list-unstyled">
           <li>
-            <img :src="userInfo.avatarUrl" alt="" class=" img-circle" style="width:30px;height:30px">
+            <img :src="userInfo.avatarUrl" alt="头像" class=" img-circle" style="width:30px;height:30px">
           </li>
           <li class=" dropdown">
             <a href="#" data-toggle="dropdown" class=" dropdown-toggle" style="color:white">
@@ -30,7 +32,6 @@
             <ul class=" dropdown-menu" v-if="userInfo.userId!=''">
               <li><a href="#" @click="logOut">退出登陆</a></li>
             </ul>
-            
           </li>
           <li><a href="#" style="color:white"><span class="glyphicon glyphicon-eye-open"></span></a></li>
           <li><a href="#" style="color:white"><span class=" glyphicon glyphicon-envelope"></span></a></li>
@@ -60,6 +61,7 @@ export default {
     ...mapGetters(["userInfo"])
   },
   methods:{
+    //退出程序
     exitSys(){
       let id = remote.dialog.showMessageBox(null,{
         title:"请确认",
@@ -70,12 +72,13 @@ export default {
       if(id===0){
         ipcRenderer.send("window-close");
       }
-
     },
+    //最小化
     windowMin(){
       console.log("min");
       ipcRenderer.send("window-min");
     },
+    //最大化
     windowMax(){
       ipcRenderer.send("window-max");
     },
@@ -86,6 +89,7 @@ export default {
         buttons:["确定"]
       });
     },
+    //注销，退出登陆
     logOut(){
       this.$store.dispatch("logOut")
     }
