@@ -21,6 +21,7 @@ export default {
     }
   },
    created(){
+     console.log(this.$router);
     this.gettuijianMusicList();
   },
   mounted() {

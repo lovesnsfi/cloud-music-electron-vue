@@ -55,7 +55,7 @@ export default {
     list-style-type: none;
     font-size: 12px;
     margin: 10px 0;
-    >li{
+    >li:not(:first-child){
       padding: 0 10px;
       border-right: 1px solid lightgray;
     }

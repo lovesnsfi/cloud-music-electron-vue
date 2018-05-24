@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-      <m-header></m-header>
+      <m-header @loginByPhone="showLoginBox=true"></m-header>
       <div class="content">
         <div class="leftMenu">
           <left-menu></left-menu>
@@ -10,21 +10,26 @@
         </div>
       </div>
       <div class="bottom"></div>
+      <login-box v-if="showLoginBox" @closeLoginBox="showLoginBox=false"></login-box>
   </div>
 </template>
 
 <script>
 import mHeader from "@/components/m-header";
 import leftMenu from "@/components/leftMenu";
+import loginBox from "@/components/loginBox";
 export default {
   name:"index",
   data(){
     return {
-
+      showLoginBox:false
     }
   },
   components:{
-    mHeader,leftMenu
+    mHeader,leftMenu,loginBox
+  },
+  methods:{
+    
   }
 }
 </script>
