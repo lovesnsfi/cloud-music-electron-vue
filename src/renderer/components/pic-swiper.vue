@@ -77,7 +77,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style >
 #certify {
 	position: relative;
 	width: 100%;

@@ -2,11 +2,15 @@
   <div class="leftMenu">
     <div class="menu-header">推荐</div>
     <ul class=" list-unstyled menu-item">
-      <router-link tag="li" active-class="active" :to="{name:'findMusic'}">
+      <router-link tag="li" active-class="active" :to="{name:'tuijian'}">
         <a href="#"><span class=" glyphicon glyphicon-music"></span>发现音乐</a>
       </router-link>
-      <li><a href="#"><span class=" glyphicon glyphicon-signal"></span>私人FM</a></li>
-      <li><a href="#"><span class=" glyphicon glyphicon-facetime-video"></span>视频</a></li>
+      <router-link tag="li" active-class="active" :to="{name:'privateFM'}">
+        <a href="#"><span class=" glyphicon glyphicon-signal"></span>私人FM</a>
+      </router-link>
+      <router-link tag="li" active-class="active" :to="{name:'MV'}">
+        <a href="#"><span class=" glyphicon glyphicon-facetime-video"></span>视频</a>
+      </router-link>
       <li><a href="#"><span class=" glyphicon glyphicon-music"></span>朋友</a></li>
     </ul>
 

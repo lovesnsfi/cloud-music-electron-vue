@@ -21,6 +21,7 @@ import "animate.css/animate.min.css";
 import imgLoading from "./assets/loading.gif";
 import imgErr from "./assets/loadingErr.svg";
 import VueLazyLoad from "vue-lazyload";
+
 Vue.use(VueLazyLoad, {
     loading: imgLoading, //正在加载的图片
     error: imgErr //图片加载失败以后
@@ -31,7 +32,12 @@ new Vue({
   components: { App },
   router,
   store,
-  template: '<App/>'
+  template: '<App/>',
+  created(){
+    if(localStorage.getItem("userInfo")!=null&&localStorage.getItem("userInfo")!=undefined){
+      this.$store.dispatch("setUserInfo",JSON.parse(localStorage.getItem("userInfo")));
+    }
+  }
 }).$mount('#app')
 
 

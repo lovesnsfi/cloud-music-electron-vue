@@ -4,6 +4,8 @@ import index from "@/pages/index";
 import findMusic from "@/pages/findMusic";
 import playList from "@/pages/playList";
 import tuijian from "@/pages/tuijian";
+import privateFM from "@/pages/privateFM";
+import MV from "@/pages/MV";
 
 Vue.use(Router)
 
@@ -28,13 +30,23 @@ export default new Router({
                             component:tuijian
                         }   
                     ]
+                },
+                {
+                    path:"privateFM",
+                    name:"privateFM",
+                    component:privateFM
+                },
+                {
+                    path:"MV",
+                    name:"MV",
+                    component:MV
                 }
                 
             ]
         },
         {
             path: '/',
-            redirect: {name:"findMusic"}
+            redirect: {name:"tuijian"}
         }
     ]
 })
